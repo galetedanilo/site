@@ -1,17 +1,34 @@
-<section class="register-content">
-  <div *ngIf="this.isNewRegister; else registerConfirmation">
+<section class="content-center">
+  <div
+    class="form-container"
+    *ngIf="this.isNewRegister; else registerConfirmation"
+  >
     <form [formGroup]="this.form" (ngSubmit)="this.onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Enter your name</mat-label>
-        <input matInput placeholder="your name" formControlName="user_name" required>
+        <input
+          matInput
+          placeholder="your name"
+          formControlName="user_name"
+          required
+        />
         <mat-icon matSuffix>person</mat-icon>
-        <mat-error *ngIf="this.form.get('user_name')?.invalid">{{getErrorMessage('user_name')}}</mat-error>
+        <mat-error *ngIf="this.form.get('user_name')?.invalid">{{
+          getErrorMessage("user_name")
+        }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="your_email@email.com" formControlName="user_email" required>
+        <input
+          matInput
+          placeholder="your_email@email.com"
+          formControlName="user_email"
+          required
+        />
         <mat-icon matSuffix>alternate_email</mat-icon>
-        <mat-error *ngIf="this.form.get('user_email')?.invalid">{{getErrorMessage('user_email')}}</mat-error>
+        <mat-error *ngIf="this.form.get('user_email')?.invalid">{{
+          getErrorMessage("user_email")
+        }}</mat-error>
       </mat-form-field>
     </form>
   </div>
