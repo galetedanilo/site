@@ -19,6 +19,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   isNewRegister: boolean = true;
   isLoading: boolean = false;
+  hidePassword: boolean = true;
 
   private user: User = {
     user_name: '',
@@ -35,7 +36,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.isLoading = true;
 
     this.registrationService
-      .registerUser(this.form.value)
+      .registerNewAccount(this.form.value)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: RegistrationResponse) => {

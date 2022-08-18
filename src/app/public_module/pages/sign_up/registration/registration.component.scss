@@ -1,5 +1,35 @@
-@import 'main';
+@import "main";
 
-.form-container {
-  width: 300px;
+.registration-content {
+  border: 2px solid #1ca381;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 500px;
+
+  &__title {
+    color: #254789;
+    padding: 2rem;
+  }
+
+  &__form {
+    width: 300px;
+
+    .mat-form-field {
+      width: 300px;
+      padding-bottom: 10px;
+    }
+
+    &__actions {
+      float: inline-end;
+
+      .mat-raised-button {
+        width: 150px;
+      }
+    }
+  }
 }

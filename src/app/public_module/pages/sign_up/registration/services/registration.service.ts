@@ -11,7 +11,7 @@ export class RegistrationServiceImpl implements RegistrationService {
 
   constructor(private httpClient: PublicHttpService) {}
 
-  registerUser(data: RegistrationRequest): Observable<RegistrationResponse> {
+  registerNewAccount(data: RegistrationRequest): Observable<RegistrationResponse> {
     return this.httpClient.post<RegistrationRequest, RegistrationResponse>(this.resource, data);
   }
 }

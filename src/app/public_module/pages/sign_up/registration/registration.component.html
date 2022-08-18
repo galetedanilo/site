@@ -1,36 +1,74 @@
 <section class="content-center">
   <div
-    class="form-container"
+    class="registration-content"
     *ngIf="this.isNewRegister; else registerConfirmation"
   >
-    <form [formGroup]="this.form" (ngSubmit)="this.onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your name</mat-label>
-        <input
-          matInput
-          placeholder="your name"
-          formControlName="user_name"
-          required
-        />
-        <mat-icon matSuffix>person</mat-icon>
-        <mat-error *ngIf="this.form.get('user_name')?.invalid">{{
-          getErrorMessage("user_name")
-        }}</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input
-          matInput
-          placeholder="your_email@email.com"
-          formControlName="user_email"
-          required
-        />
-        <mat-icon matSuffix>alternate_email</mat-icon>
-        <mat-error *ngIf="this.form.get('user_email')?.invalid">{{
-          getErrorMessage("user_email")
-        }}</mat-error>
-      </mat-form-field>
-    </form>
+    <div class="registration-content__title">
+      <h2>Create Your Account</h2>
+    </div>
+    <div class="registration-content__form">
+      <form [formGroup]="this.form" (ngSubmit)="this.onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your name</mat-label>
+          <input
+            matInput
+            placeholder="your name"
+            formControlName="user_name"
+            required
+          />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="this.form.get('user_name')?.invalid">{{
+            getErrorMessage("user_name")
+          }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="your_email@email.com"
+            formControlName="user_email"
+            required
+          />
+          <mat-icon matSuffix>alternate_email</mat-icon>
+          <mat-error *ngIf="this.form.get('user_email')?.invalid">{{
+            getErrorMessage("user_email")
+          }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Create your password</mat-label>
+          <input
+            matInput
+            formControlName="user_password"
+            [type]="this.hidePassword ? 'password' : 'text'"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="this.hidePassword = !this.hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="this.hidePassword"
+          >
+            <mat-icon>{{
+              this.hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="this.form.get('user_password')?.invalid">{{
+            getErrorMessage("user_password")
+          }}</mat-error>
+        </mat-form-field>
+        <div class="registration-content__form__actions">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="this.form.invalid"
+            type="submit"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
   <ng-template #registerConfirmation>TResete</ng-template>
 </section>
