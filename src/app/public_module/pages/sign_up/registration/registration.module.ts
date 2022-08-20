@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegistrationServiceImpl } from './services/registration.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
+
+import { RegistrationService } from '../shared/services/registration.service';
+import { AccountRegisterFormComponent } from './components/account_register_form/account-register-form.component';
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './registration.component';
-import { RegistrationService } from '../shared/services/registration.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { AccountRegisterFormComponent } from './components/account_register_form/account-register-form.component';
+import { RegistrationServiceImpl } from './services/registration.service';
 
 @NgModule({
   declarations: [RegistrationComponent, AccountRegisterFormComponent],
@@ -21,9 +23,11 @@ import { AccountRegisterFormComponent } from './components/account_register_form
     MatIconModule,
     MatButtonModule,
     RegistrationRoutingModule,
+    TranslocoModule,
   ],
   providers: [
     { provide: RegistrationService, useClass: RegistrationServiceImpl },
+    { provide: TRANSLOCO_SCOPE, useValue: 'registration' },
   ],
 })
 export class RegistrationModule {}

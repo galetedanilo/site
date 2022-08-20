@@ -4,7 +4,7 @@
     *ngIf="this.isNewRegister; else registerConfirmation"
   >
     <div class="registration-content__title">
-      <h2>Create Your Account</h2>
+      <h2>{{ 'registration.create_your_account' | transloco }} </h2>
     </div>
     <div class="registration-content__form">
       <app-account-register-form></app-account-register-form>

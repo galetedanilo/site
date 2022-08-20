@@ -1,9 +1,9 @@
 <form [formGroup]="this.accountRegisterForm" (ngSubmit)="this.onSubmit()">
   <mat-form-field appearance="fill">
-    <mat-label>Enter your name</mat-label>
+    <mat-label>{{ 'registration.enter_your_name' | transloco }}</mat-label>
     <input
       matInput
-      placeholder="Your full name"
+      placeholder="{{ 'registration.your_full_name' | transloco }}"
       formControlName="name"
       required
     />
@@ -20,11 +20,11 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
+    <mat-label>{{ 'registration.enter_your_email' | transloco }}</mat-label>
     <input
       maxlength="30"
       matInput
-      placeholder="your_email@email.com"
+      placeholder="{{ 'registration.your_email_email_com' | transloco }}"
       formControlName="email"
       required
     />
