@@ -1,0 +1,124 @@
+<form [formGroup]="this.accountRegisterForm" (ngSubmit)="this.onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your name</mat-label>
+    <input
+      matInput
+      placeholder="Your full name"
+      formControlName="name"
+      required
+    />
+    <mat-icon matSuffix>person</mat-icon>
+    <mat-error *ngFor="let validation of this.validator_error_messages.name">
+      <mat-error
+        *ngIf="
+          this.accountRegisterForm.get('name')?.hasError(validation.type) &&
+          (this.accountRegisterForm.get('name')?.dirty ||
+            this.accountRegisterForm.get('name')?.touched)
+        "
+        >{{ validation.message }}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input
+      maxlength="30"
+      matInput
+      placeholder="your_email@email.com"
+      formControlName="email"
+      required
+    />
+    <mat-icon matSuffix>alternate_email</mat-icon>
+    <mat-error *ngFor="let validation of this.validator_error_messages.email">
+      <mat-error
+        *ngIf="
+          this.accountRegisterForm.get('email')?.hasError(validation.type) &&
+          (this.accountRegisterForm.get('email')?.dirty ||
+            this.accountRegisterForm.get('email')?.touched)
+        "
+        >{{ validation.message }}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <div formGroupName="passwordMatch">
+    <mat-form-field appearance="fill">
+      <mat-label>Create your password</mat-label>
+      <input
+        maxlength="15"
+        matInput
+        formControlName="password"
+        [type]="this.hidePassword ? 'password' : 'text'"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="this.hidePassword = !this.hidePassword"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="this.hidePassword"
+      >
+        <mat-icon>{{
+          this.hidePassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+      <mat-error
+        *ngFor="let validation of this.validator_error_messages.password"
+      >
+        <mat-error
+          *ngIf="
+            this.accountRegisterForm
+              .get('passwordMatch.password')
+              ?.hasError(validation.type) &&
+            (this.accountRegisterForm.get('passwordMatch.password')?.dirty ||
+              this.accountRegisterForm.get('passwordMatch.password')?.touched)
+          "
+          >{{ validation.message }}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Create your password</mat-label>
+      <input
+        maxlength="15"
+        matInput
+        formControlName="confirm_password"
+        [type]="this.hideConfirmPassword ? 'password' : 'text'"
+        required
+        [errorStateMatcher]="this.match"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="this.hideConfirmPassword = !this.hideConfirmPassword"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="this.hidePassword"
+      >
+        <mat-icon>{{
+          this.hideConfirmPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+      <mat-error
+        *ngFor="let validation of this.validator_error_messages.confirm_password"
+      >
+        <mat-error
+          *ngIf="
+            this.accountRegisterForm
+              .get('passwordMatch')
+              ?.hasError(validation.type)
+          "
+          >{{ validation.message }}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="account-register-form__actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="this.accountRegisterForm.invalid"
+    >
+      Register
+    </button>
+  </div>
+</form>

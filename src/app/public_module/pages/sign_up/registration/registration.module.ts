@@ -9,9 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AccountRegisterFormComponent } from './components/account_register_form/account-register-form.component';
 
 @NgModule({
-  declarations: [RegistrationComponent],
+  declarations: [RegistrationComponent, AccountRegisterFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

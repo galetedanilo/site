@@ -18,18 +18,5 @@
 
   &__form {
     width: 300px;
-
-    .mat-form-field {
-      width: 300px;
-      padding-bottom: 10px;
-    }
-
-    &__actions {
-      float: inline-end;
-
-      .mat-raised-button {
-        width: 150px;
-      }
-    }
   }
 }
