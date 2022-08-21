@@ -1,4 +1,4 @@
-<form [formGroup]="this.accountRegisterForm" (ngSubmit)="this.onSubmit()">
+<form [formGroup]="this.registrationForm" (ngSubmit)="this.onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>{{ "registration.name" | transloco }}</mat-label>
     <input
@@ -9,12 +9,12 @@
       required
     />
     <mat-icon matSuffix>person</mat-icon>
-    <mat-error *ngFor="let validation of this.validator_error_messages.name">
+    <mat-error *ngFor="let validation of this.validatorMessages.name">
       <mat-error
         *ngIf="
-          this.accountRegisterForm.get('name')?.hasError(validation.type) &&
-          (this.accountRegisterForm.get('name')?.dirty ||
-            this.accountRegisterForm.get('name')?.touched)
+          this.registrationForm.get('name')?.hasError(validation.type) &&
+          (this.registrationForm.get('name')?.dirty ||
+            this.registrationForm.get('name')?.touched)
         "
         >{{ validation.message | transloco }}
       </mat-error>
@@ -30,12 +30,12 @@
       required
     />
     <mat-icon matSuffix>alternate_email</mat-icon>
-    <mat-error *ngFor="let validation of this.validator_error_messages.email">
+    <mat-error *ngFor="let validation of this.validatorMessages.email">
       <mat-error
         *ngIf="
-          this.accountRegisterForm.get('email')?.hasError(validation.type) &&
-          (this.accountRegisterForm.get('email')?.dirty ||
-            this.accountRegisterForm.get('email')?.touched)
+          this.registrationForm.get('email')?.hasError(validation.type) &&
+          (this.registrationForm.get('email')?.dirty ||
+            this.registrationForm.get('email')?.touched)
         "
         >{{ validation.message | transloco }}
       </mat-error>
@@ -64,15 +64,15 @@
         }}</mat-icon>
       </button>
       <mat-error
-        *ngFor="let validation of this.validator_error_messages.password"
+        *ngFor="let validation of this.validatorMessages.password"
       >
         <mat-error
           *ngIf="
-            this.accountRegisterForm
+            this.registrationForm
               .get('passwordMatch.password')
               ?.hasError(validation.type) &&
-            (this.accountRegisterForm.get('passwordMatch.password')?.dirty ||
-              this.accountRegisterForm.get('passwordMatch.password')?.touched)
+            (this.registrationForm.get('passwordMatch.password')?.dirty ||
+              this.registrationForm.get('passwordMatch.password')?.touched)
           "
           >{{ validation.message | transloco }}
         </mat-error>
@@ -102,12 +102,12 @@
       </button>
       <mat-error
         *ngFor="
-          let validation of this.validator_error_messages.confirm_password
+          let validation of this.validatorMessages.confirm_password
         "
       >
         <mat-error
           *ngIf="
-            this.accountRegisterForm
+            this.registrationForm
               .get('passwordMatch')
               ?.hasError(validation.type)
           "
@@ -116,15 +116,15 @@
       </mat-error>
     </mat-form-field>
   </div>
-  <div class="account-register-form__terms">
+  <div class="registration-form__terms">
     <mat-checkbox color="primary" formControlName="terms">{{ 'registration.accept_terms' | transloco }}</mat-checkbox>
   </div>
-  <div class="account-register-form__actions">
+  <div class="registration-form__actions">
     <button
       mat-raised-button
       color="primary"
       type="submit"
-      [disabled]="this.accountRegisterForm.invalid"
+      [disabled]="this.registrationForm.invalid"
     >
       {{ "registration.sign_up" | transloco }}
     </button>

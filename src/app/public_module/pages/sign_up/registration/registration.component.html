@@ -7,7 +7,7 @@
       <h2>{{ 'registration.create_your_account' | transloco }} </h2>
     </div>
     <div class="registration-content__form">
-      <app-account-register-form></app-account-register-form>
+      <app-registration-form [isLoading]="this.isLoading" (formSubmitEvent)="this.onSubmit($event)"></app-registration-form>
     </div>
   </div>
   <ng-template #registerConfirmation>TResete</ng-template>

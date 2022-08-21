@@ -1,7 +1,7 @@
 import { User } from "../../shared/interfaces/user.interface"
 
 export interface RegistrationRequest extends User {
-  user_password: string
+  password: string
 }
 
 export interface RegistrationResponse  extends User {

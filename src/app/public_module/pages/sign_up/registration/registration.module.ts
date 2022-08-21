@@ -6,16 +6,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { RegistrationService } from '../shared/services/registration.service';
-import { AccountRegisterFormComponent } from './components/account_register_form/account-register-form.component';
+import { RegistrationFormComponent } from './components/registration_form/registration-form.component';
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './registration.component';
 import { RegistrationServiceImpl } from './services/registration.service';
 
 @NgModule({
-  declarations: [RegistrationComponent, AccountRegisterFormComponent],
+  declarations: [RegistrationComponent, RegistrationFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -24,6 +25,7 @@ import { RegistrationServiceImpl } from './services/registration.service';
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     RegistrationRoutingModule,
     TranslocoModule,
   ],
