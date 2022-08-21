@@ -1,7 +1,26 @@
 {
-  "create_your_account": "Criar Minha Conta",
-  "enter_your_email": "Informe seu e-mail",
-  "enter_your_name": "Informe seu nome",
-  "your_email_email_com": "seu_email@email.com",
-  "your_full_name": "seu nome completo"
+  "accept_terms": "Aceitar termos",
+  "create_your_account": "Crie sua conta",
+  "create_your_password": "Crie sua senha",
+  "email": "E-mail",
+  "email_cannot_be_more_than_40_characters_long" : "O e-mail não pode ter mais de 40 caracteres",
+  "email_is_required": "E-mail é obrigatório",
+  "email_must_be_at_least_5_characters_long": "O e-mail deve ter pelo menos 5 caracteres",
+  "enter_a_valid_email": "Digite um e-mail valido",
+  "enter_your_email": "Digite seu e-mail",
+  "enter_your_name": "Digite seu nome",
+  "name": "Nome",
+  "name_cannot_be_more_than_40_characters_long": "O nome não pode ter mais de 40 caracteres",
+  "name_is_required": "Nome é obrigatório",
+  "name_must_be_at_least_5_characters_long": "O nome deve ter pelo menos 5 caracteres",
+  "password": "Senha",
+  "password_cannot_be_more_than_15_characters_long": "O senha não pode ter mais de 15 caracteres",
+  "password_is_required": "Senha é obrigatório",
+  "password_mismatch": "Senha incorreta",
+  "password_must_be_at_least_5_characters_long": "A senha deve ter pelo menos 5 caracteres",
+  "repeat_your_password" : "Repita sua senha",
+  "sign_up": "Inscrever-se",
+  "your_name_must_contain_only_letters": "Seu nome deve conter apenas letras",
+  "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Sua senha deve conter pelo menos uma maiúscula, uma minúscula e um número"
+
 }

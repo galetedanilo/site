@@ -1,7 +1,25 @@
 {
-  "create_your_account": "Create Your Account",
+  "accept_terms": "Accept terms",
+  "create_your_account": "Create your account",
+  "create_your_password": "Create your password",
+  "email": "Email",
+  "email_cannot_be_more_than_40_characters_long": "Email cannot be more than 40 characters long",
+  "email_is_required": "Email is required",
+  "email_must_be_at_least_5_characters_long": "Email mustbe at least 5 characters long",
+  "enter_a_valid_email": "Enter a valid email",
   "enter_your_email": "Enter your email",
   "enter_your_name": "Enter your name",
-  "your_email_email_com": "your_email@email.com",
-  "your_full_name": "your full name"
+  "name": "Name",
+  "name_cannot_be_more_than_40_characters_long": "Name cannot be more than 40 characters long",
+  "name_is_required": "Name is required",
+  "name_must_be_at_least_5_characters_long": "Name must be at least 5 characters long",
+  "password": "Password",
+  "password_cannot_be_more_than_15_characters_long": "Password cannot be more than 15 characters long",
+  "password_is_required": "Password is required",
+  "password_mismatch": "Password mismatch",
+  "password_must_be_at_least_5_characters_long": "Password must be at least 5 characters long",
+  "repeat_your_password": "Repeat your password",
+  "sign_up": "Sign up",
+  "your_name_must_contain_only_letters": "Your name must contain only letters",
+  "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Your password must contain at least one uppercase, one lowercase, and one number"
 }

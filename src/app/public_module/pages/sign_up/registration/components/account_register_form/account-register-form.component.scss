@@ -3,10 +3,16 @@
   padding-bottom: 30px;
 }
 
-.account-register-form__actions {
-  float: right;
+.account-register-form {
+  &__terms {
+    margin: 0 0 2rem 0;
+  }
 
-  .mat-raised-button {
-    width: 150px;
+  &__actions {
+    float: right;
+
+    .mat-raised-button {
+      width: 150px;
+    }
   }
 }

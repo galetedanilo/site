@@ -1,9 +1,10 @@
 <form [formGroup]="this.accountRegisterForm" (ngSubmit)="this.onSubmit()">
   <mat-form-field appearance="fill">
-    <mat-label>{{ 'registration.enter_your_name' | transloco }}</mat-label>
+    <mat-label>{{ "registration.name" | transloco }}</mat-label>
     <input
+      maxlength="45"
       matInput
-      placeholder="{{ 'registration.your_full_name' | transloco }}"
+      placeholder="{{ 'registration.enter_your_name' | transloco }}"
       formControlName="name"
       required
     />
@@ -15,16 +16,16 @@
           (this.accountRegisterForm.get('name')?.dirty ||
             this.accountRegisterForm.get('name')?.touched)
         "
-        >{{ validation.message }}
+        >{{ validation.message | transloco }}
       </mat-error>
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>{{ 'registration.enter_your_email' | transloco }}</mat-label>
+    <mat-label>{{ "registration.email" | transloco }}</mat-label>
     <input
-      maxlength="30"
+      maxlength="45"
       matInput
-      placeholder="{{ 'registration.your_email_email_com' | transloco }}"
+      placeholder="{{ 'registration.enter_your_email' | transloco }}"
       formControlName="email"
       required
     />
@@ -36,16 +37,17 @@
           (this.accountRegisterForm.get('email')?.dirty ||
             this.accountRegisterForm.get('email')?.touched)
         "
-        >{{ validation.message }}
+        >{{ validation.message | transloco }}
       </mat-error>
     </mat-error>
   </mat-form-field>
   <div formGroupName="passwordMatch">
     <mat-form-field appearance="fill">
-      <mat-label>Create your password</mat-label>
+      <mat-label>{{ "registration.password" | transloco }}</mat-label>
       <input
-        maxlength="15"
+        maxlength="20"
         matInput
+        placeholder="{{ 'registration.create_your_password' | transloco }}"
         formControlName="password"
         [type]="this.hidePassword ? 'password' : 'text'"
         required
@@ -72,15 +74,16 @@
             (this.accountRegisterForm.get('passwordMatch.password')?.dirty ||
               this.accountRegisterForm.get('passwordMatch.password')?.touched)
           "
-          >{{ validation.message }}
+          >{{ validation.message | transloco }}
         </mat-error>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Create your password</mat-label>
+      <mat-label>{{ "registration.password" | transloco }}</mat-label>
       <input
         maxlength="15"
         matInput
+        placeholder="{{ 'registration.repeat_your_password' | transloco }}"
         formControlName="confirm_password"
         [type]="this.hideConfirmPassword ? 'password' : 'text'"
         required
@@ -98,7 +101,9 @@
         }}</mat-icon>
       </button>
       <mat-error
-        *ngFor="let validation of this.validator_error_messages.confirm_password"
+        *ngFor="
+          let validation of this.validator_error_messages.confirm_password
+        "
       >
         <mat-error
           *ngIf="
@@ -106,10 +111,13 @@
               .get('passwordMatch')
               ?.hasError(validation.type)
           "
-          >{{ validation.message }}
+          >{{ validation.message | transloco }}
         </mat-error>
       </mat-error>
     </mat-form-field>
+  </div>
+  <div class="account-register-form__terms">
+    <mat-checkbox color="primary" formControlName="terms">{{ 'registration.accept_terms' | transloco }}</mat-checkbox>
   </div>
   <div class="account-register-form__actions">
     <button
@@ -118,7 +126,7 @@
       type="submit"
       [disabled]="this.accountRegisterForm.invalid"
     >
-      Register
+      {{ "registration.sign_up" | transloco }}
     </button>
   </div>
 </form>
