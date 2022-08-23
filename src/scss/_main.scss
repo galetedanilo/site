@@ -4,3 +4,12 @@
   align-items: center;
   height: 100vh;
 }
+
+::ng-deep .error-snackbar {
+  background: #ff0000;
+  color: #ffffff;
+
+  button {
+    color: #ffffff;
+  }
+}

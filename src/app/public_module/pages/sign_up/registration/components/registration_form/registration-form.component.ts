@@ -4,15 +4,15 @@ import { ErrorStateMatcherHelper } from '@app/public_module/shared/helpers/error
 import { passwordMatchValidator } from '@app/public_module/shared/validators/password-match.validator';
 
 import { ValidatorMessagesHelper } from './helpers/validator-messages.helper';
+import { RegistrationInputValues } from './interfaces/registration-input-values.interface';
 
 @Component({
-  selector: 'app-registration-form[isLoading]',
+  selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent {
-  @Output() formSubmitEvent: EventEmitter<object> = new EventEmitter();
-  @Input() isLoading: boolean = false;
+  @Output() formSubmitEvent: EventEmitter<RegistrationInputValues> = new EventEmitter();
 
   match = new ErrorStateMatcherHelper();
   hidePassword: boolean = true;

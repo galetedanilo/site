@@ -6,7 +6,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SpinnerOverlayModule } from '@app/shared/components/spinner_overlay/spinner-overlay.module';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { RegistrationService } from '../shared/services/registration.service';
@@ -25,9 +26,10 @@ import { RegistrationServiceImpl } from './services/registration.service';
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule,
+    MatSnackBarModule,
     RegistrationRoutingModule,
     TranslocoModule,
+    SpinnerOverlayModule,
   ],
   providers: [
     { provide: RegistrationService, useClass: RegistrationServiceImpl },

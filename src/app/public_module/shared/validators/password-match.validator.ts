@@ -1,8 +1,8 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
 export function passwordMatchValidator(group: AbstractControl): ValidationErrors | null  { 
-  let pass = group.get('password')?.value;
-  let confirmPass = group.get('confirm_password')?.value
+  let password = group.get('password')?.value;
+  let confirmPassword = group.get('confirm_password')?.value
 
-  return pass !== confirmPass ? { match: true } : null
+  return password !== confirmPassword ? { match: true } : null
 }

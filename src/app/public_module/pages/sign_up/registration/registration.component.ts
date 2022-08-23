@@ -1,9 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject, takeUntil } from 'rxjs';
 
 import { User } from '../shared/interfaces/user.interface';
 import { RegistrationService } from '../shared/services/registration.service';
+import { RegistrationInputValues } from './components/registration_form/interfaces/registration-input-values.interface';
 import { RegistrationRequest, RegistrationResponse } from './interfaces/registration.interface';
 import { RegistrationMapper } from './mappers/registration.mapper';
 
@@ -22,15 +24,20 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
-  constructor(private registrationService: RegistrationService) {}
+  constructor(
+    private registrationService: RegistrationService,
+    private matSnackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
-  onSubmit(event: object): void {
+  onSubmit(formValue: RegistrationInputValues): void {
     this.isLoading = true;
 
     const request: RegistrationRequest =
-      RegistrationMapper.mapperFormValueToRegistrationRequest(event);
+      RegistrationMapper.mapperRegistrationInputValuesToRegistrationRequest(
+        formValue
+      );
 
     this.registrationService
       .registerNewAccount(request)
@@ -42,7 +49,13 @@ export class RegistrationComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         },
         error: (error: HttpErrorResponse) => {
-          
+          this.isLoading = false;
+          this.matSnackBar.open(error.message, 'Close', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 2500,
+            
+          });
         },
       });
   }

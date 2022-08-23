@@ -1,16 +1,17 @@
 import { User } from '../../shared/interfaces/user.interface';
-import {
-  RegistrationRequest,
-  RegistrationResponse,
-} from '../interfaces/registration.interface';
+import { RegistrationInputValues } from '../components/registration_form/interfaces/registration-input-values.interface';
+import { RegistrationRequest, RegistrationResponse } from '../interfaces/registration.interface';
 
 export class RegistrationMapper {
-  public static mapperFormValueToRegistrationRequest(formValue: any) {
+  public static mapperRegistrationInputValuesToRegistrationRequest(
+    formValue: RegistrationInputValues
+  ) {
     const mapper: RegistrationRequest = {
       name: formValue.name,
       email: formValue.email,
-      password: formValue.password,
+      password: formValue.passwordMatch.password,
     };
+
     return mapper;
   }
 

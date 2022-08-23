@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, TitleStrategy } from '@angular/router';
-import { PageTitleService } from './shared/helpers/page-title.service';
+import { PageTitleService } from './shared/services/page-title.service';
 
 const routes: Routes = [
   {
