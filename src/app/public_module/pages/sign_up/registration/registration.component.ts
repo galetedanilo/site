@@ -24,10 +24,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
-  constructor(
-    private registrationService: RegistrationService,
-    private matSnackBar: MatSnackBar
-  ) {}
+  constructor(private registrationService: RegistrationService, private matSnackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
@@ -35,9 +32,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.isLoading = true;
 
     const request: RegistrationRequest =
-      RegistrationMapper.mapperRegistrationInputValuesToRegistrationRequest(
-        formValue
-      );
+      RegistrationMapper.mapperRegistrationInputValuesToRegistrationRequest(formValue);
 
     this.registrationService
       .registerNewAccount(request)
@@ -54,7 +49,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
             horizontalPosition: 'center',
             verticalPosition: 'top',
             duration: 2500,
-            
           });
         },
       });

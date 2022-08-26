@@ -3,7 +3,7 @@ export interface RegistrationInputValues {
   email: string;
   passwordMatch: {
     password: string;
-    confirm_password: String;
+    confirm_password: string;
   };
   terms: boolean;
 }
