@@ -3,17 +3,21 @@
   <div class="registration-content">
     <div *ngIf="this.isNewRegister; else registerConfirmation">
       <div class="registration-content__title">
-        <h2>{{ "registration.create_your_account" | transloco }}</h2>
+        <h2>{{ 'registration.create_your_account' | transloco }}</h2>
       </div>
       <div class="registration-content__form">
-        <app-registration-form
-          (formSubmitEvent)="this.onSubmit($event)"
-        ></app-registration-form>
+        <app-registration-form (formSubmitEvent)="this.onSubmit($event)"></app-registration-form>
       </div>
     </div>
     <ng-template #registerConfirmation>
-      <div class="resitration-content__title">
-        Sua conta foi criada com sucesso
+      <div class="registration-content__title">
+        <h2>{{ 'registration.thanks_for_signing_up' | transloco }}!</h2>
+      </div>
+      <div class="registration-content__success__message">
+        <p>{{ 'registration.success_message' | transloco }}.</p>
+      </div>
+      <div class="registration-content__links">
+        <a [routerLink]="['/signin']">Login</a>
       </div>
     </ng-template>
   </div>

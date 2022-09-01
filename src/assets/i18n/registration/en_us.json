@@ -20,6 +20,9 @@
   "password_must_be_at_least_5_characters_long": "Password must be at least 5 characters long",
   "repeat_your_password": "Repeat your password",
   "sign_up": "Sign up",
+  "success_message": "Please check your email for the confirmation message we just sent you",
+  "thanks_for_signing_up": "Thanks for signing up",
+  "you_are_all_signed_up": "You're all signed up",
   "your_name_must_contain_only_letters": "Your name must contain only letters",
   "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Your password must contain at least one uppercase, one lowercase, and one number"
 }

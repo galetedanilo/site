@@ -20,6 +20,8 @@
   "password_must_be_at_least_5_characters_long": "A senha deve ter pelo menos 5 caracteres",
   "repeat_your_password" : "Repita sua senha",
   "sign_up": "Inscrever-se",
+  "success_message": "Por favor, verifique seu e-mail acabamos de enviar um mensagem de confirmação para ativar sua conta",
+  "thanks_for_signing_up": "Obrigado por inscrever-se",
   "your_name_must_contain_only_letters": "Seu nome deve conter apenas letras",
   "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Sua senha deve conter pelo menos uma maiúscula, uma minúscula e um número"
 

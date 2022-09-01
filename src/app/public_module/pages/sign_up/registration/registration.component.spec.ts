@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
@@ -14,6 +15,16 @@ describe('RegistrationComponent', () => {
 
   let registrationServiceSpy: jest.Mocked<RegistrationService>;
   let matSnackBarSpy: jest.Mocked<MatSnackBar>;
+
+  const mockFormValues = {
+    name: 'name mocked',
+    email: 'emailmocked@mocked.com',
+    passwordMatch: {
+      password: 'passwordMocked',
+      confirm_password: 'passwordMocked',
+    },
+    terms: true,
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -41,25 +52,39 @@ describe('RegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call onSubimit()', fakeAsync(() => {
+  it('should call onSubmit()', fakeAsync(() => {
     const mockResponse = { name: 'name mocked', email: 'emailmocked@mocked.com', id: 'dfa45df8d8s7f' };
-    const mockFormValues = {
-      name: 'name mocked',
-      email: 'emailmocked@mocked.com',
-      passwordMatch: {
-        password: 'passwordMocked',
-        confirm_password: 'passwordMocked',
-      },
-      terms: true,
-    };
-
+    
     registrationServiceSpy.registerNewAccount = jest.fn().mockReturnValue(of(mockResponse));
 
     component.onSubmit(mockFormValues);
+
+    //expect(component.isLoading).toBeTruthy();
+    //expect(component.isNewRegister).toBeTruthy();
     tick();
 
     expect(registrationServiceSpy.registerNewAccount).toHaveBeenCalled();
     expect(component.isNewRegister).toBeFalsy();
     expect(component.isLoading).toBeFalsy();
+  }));
+
+  it('should call onSubmit() return HttpErrorResponse', fakeAsync(() => {
+    const mockHttpErroResponse = new HttpErrorResponse({
+      error: '404 error',
+      status: 404,
+      statusText: 'Not Found',
+    });
+
+    registrationServiceSpy.registerNewAccount = jest.fn().mockReturnValue(of(mockHttpErroResponse));
+    matSnackBarSpy.open = jest.fn().mockReturnValue('test');
+
+    component.onSubmit(mockFormValues);
+
+    //expect(component.isLoading).toBeTruthy();
+    //expect(component.isNewRegister).toBeTruthy();
+    tick();
+
+    expect(registrationServiceSpy.registerNewAccount).toHaveBeenCalled();
+    expect(component.isNewRegister).toBeTruthy();
   }));
 });

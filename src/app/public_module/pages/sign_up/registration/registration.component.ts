@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject, takeUntil } from 'rxjs';
 
-import { User } from '../shared/interfaces/user.interface';
 import { RegistrationService } from '../shared/services/registration.service';
 import { RegistrationInputValues } from './components/registration_form/interfaces/registration-input-values.interface';
 import { RegistrationRequest, RegistrationResponse } from './interfaces/registration.interface';
@@ -14,19 +13,17 @@ import { RegistrationMapper } from './mappers/registration.mapper';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit, OnDestroy {
-  isNewRegister: boolean = true;
-  isLoading: boolean = false;
-
-  private user: User = {
-    name: '',
-    email: '',
-  };
-
   private destroy$ = new Subject();
+
+  isNewRegister!: boolean;
+  isLoading!: boolean;
 
   constructor(private registrationService: RegistrationService, private matSnackBar: MatSnackBar) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isNewRegister = true;
+    this.isLoading = false;
+  }
 
   onSubmit(formValue: RegistrationInputValues): void {
     this.isLoading = true;
@@ -40,7 +37,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (data: RegistrationResponse) => {
           this.isNewRegister = false;
-          this.user = RegistrationMapper.mapperRegistrationResponseToUser(data);
           this.isLoading = false;
         },
         error: (error: HttpErrorResponse) => {
@@ -52,14 +48,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
           });
         },
       });
-  }
-
-  get userName(): string {
-    return this.user.name;
-  }
-
-  get userEmail(): string {
-    return this.user.email;
   }
 
   ngOnDestroy(): void {

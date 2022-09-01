@@ -12,8 +12,14 @@
   width: 500px;
 
   &__title {
-    color: #254789;
+    color: #253451;
     padding: 2rem;
+    text-align: center;
+  }
+
+  &__success__message {
+    color: #717b7b;
+    padding: 2rem 1.5rem 4rem;
     text-align: center;
   }
 
