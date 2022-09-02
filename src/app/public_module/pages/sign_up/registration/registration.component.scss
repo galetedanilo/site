@@ -19,11 +19,22 @@
 
   &__success__message {
     color: #717b7b;
-    padding: 2rem 1.5rem 4rem;
+    padding: 0 1.5rem 4rem;
     text-align: center;
   }
 
   &__form {
     width: 300px;
+  }
+
+  &__links {
+    padding: 0 1.5rem 2rem;
+    text-align: right;
+
+    a {
+      color: #253451;
+      font-weight: 500;
+      text-decoration: none;
+    }
   }
 }

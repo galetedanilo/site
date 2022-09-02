@@ -1,5 +1,6 @@
 {
   "accept_terms": "Accept terms",
+  "congratulations_you_are_subscribed": "Congratulations, You are subscribed",
   "create_your_account": "Create your account",
   "create_your_password": "Create your password",
   "email": "Email",
@@ -9,6 +10,7 @@
   "enter_a_valid_email": "Enter a valid email",
   "enter_your_email": "Enter your email",
   "enter_your_name": "Enter your name",
+  "log_into_the_system": "Log into the system",
   "name": "Name",
   "name_cannot_be_more_than_40_characters_long": "Name cannot be more than 40 characters long",
   "name_is_required": "Name is required",
@@ -20,9 +22,10 @@
   "password_must_be_at_least_5_characters_long": "Password must be at least 5 characters long",
   "repeat_your_password": "Repeat your password",
   "sign_up": "Sign up",
-  "success_message": "Please check your email for the confirmation message we just sent you",
-  "thanks_for_signing_up": "Thanks for signing up",
+  "success_message": "Please check your email for the confirmation message we just sent you.",
+  "thanks_message": "Thank you for signing up on our platform",
   "you_are_all_signed_up": "You're all signed up",
   "your_name_must_contain_only_letters": "Your name must contain only letters",
-  "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Your password must contain at least one uppercase, one lowercase, and one number"
+  "your_password_must_contain_at_least_one_uppercase_one_lowercase_and_one_number": "Your password must contain at least one uppercase, one lowercase, and one number",
+  "welcome": "Welcome"
 }

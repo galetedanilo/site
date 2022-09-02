@@ -15,6 +15,7 @@ import { RegistrationMapper } from './mappers/registration.mapper';
 export class RegistrationComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject();
 
+  userName!: string;
   isNewRegister!: boolean;
   isLoading!: boolean;
 
@@ -36,6 +37,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: RegistrationResponse) => {
+          this.userName = data.name
           this.isNewRegister = false;
           this.isLoading = false;
         },
