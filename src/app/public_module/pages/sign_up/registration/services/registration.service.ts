@@ -7,7 +7,7 @@ import { RegistrationRequest, RegistrationResponse } from '../interfaces/registr
 
 @Injectable()
 export class RegistrationServiceImpl implements RegistrationService {
-  private resource: string = 'registration';
+  private resource: string = '/registration';
 
   constructor(private httpClient: PublicHttpService) {}
 

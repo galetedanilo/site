@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   appName: 'My Port',
-  apiUrl: ''
+  apiUrl: '',
+  apiVersion: ''
 };
 
 /*

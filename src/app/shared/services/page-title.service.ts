@@ -13,7 +13,7 @@ export class PageTitleService extends TitleStrategy {
     const title = this.buildTitle(snapshot);
     const appName = environment.appName;
 
-    if (title !== undefined) {
+    if (title) {
       this.title.setTitle(`${appName} - ${title}`);
     } else {
       this.title.setTitle(appName);

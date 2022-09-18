@@ -2,11 +2,11 @@ import { RegistrationInputValues } from '../components/registration_form/interfa
 import { RegistrationRequest } from '../interfaces/registration.interface';
 
 export class RegistrationMapper {
-  public static mapperRegistrationInputValuesToRegistrationRequest(formValue: RegistrationInputValues) {
+  public static mapperRegistrationFormValuesToRegistrationRequest(formValues: RegistrationInputValues) {
     const mapper: RegistrationRequest = {
-      name: formValue.name,
-      email: formValue.email,
-      password: formValue.passwordMatch.password,
+      name: formValues.name,
+      email: formValues.email,
+      password: formValues.passwordMatch.password,
     };
 
     return mapper;

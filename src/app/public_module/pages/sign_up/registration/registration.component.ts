@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -12,32 +12,28 @@ import { RegistrationMapper } from './mappers/registration.mapper';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit, OnDestroy {
-  private destroy$ = new Subject();
+export class RegistrationComponent implements OnDestroy {
+  isNewRegister: boolean = true;
+  isLoading: boolean = false;
 
   userName!: string;
-  isNewRegister!: boolean;
-  isLoading!: boolean;
+
+  private destroy$ = new Subject();
 
   constructor(private registrationService: RegistrationService, private matSnackBar: MatSnackBar) {}
-
-  ngOnInit(): void {
-    this.isNewRegister = true;
-    this.isLoading = false;
-  }
 
   onSubmit(formValue: RegistrationInputValues): void {
     this.isLoading = true;
 
     const request: RegistrationRequest =
-      RegistrationMapper.mapperRegistrationInputValuesToRegistrationRequest(formValue);
+      RegistrationMapper.mapperRegistrationFormValuesToRegistrationRequest(formValue);
 
     this.registrationService
       .registerNewAccount(request)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: RegistrationResponse) => {
-          this.userName = data.name
+          this.userName = data.name;
           this.isNewRegister = false;
           this.isLoading = false;
         },
