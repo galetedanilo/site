@@ -5,15 +5,12 @@ import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
 export class TokenExpiredDateGuard implements CanLoad {
   constructor(private router: Router) {}
 
-  canLoad(
-    _route: Route,
-    segments: UrlSegment[]
-  ): boolean {
+  canLoad(_route: Route, segments: UrlSegment[]): boolean {
     const encodedExpiredDate = segments[1];
     const tokenExpired = this.isTokenExpired(encodedExpiredDate);
 
     if (tokenExpired) {
-      this.router.navigate(['/']);
+      this.router.navigate(['signUp', 'expiration', 'resendActivateToken']);
       return false;
     }
 
@@ -27,9 +24,9 @@ export class TokenExpiredDateGuard implements CanLoad {
     const compareDate = new Date();
 
     const isValideDate = this.isValideDate(expiredDate);
-   
+
     if (isValideDate) {
-      return expiredDate > compareDate;
+      return  compareDate > expiredDate;
     }
 
     return true;

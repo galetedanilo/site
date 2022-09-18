@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ConfirmationComponent } from './confirmation.component';
 
-const routes: Routes = [{ path: '', component: ConfirmationComponent }];
+const routes: Routes = [{ path: '', title: 'Confirmation Account', component: ConfirmationComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
