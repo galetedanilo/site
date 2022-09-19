@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, SkipSelf } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Reloadable } from '@app/core/interfaces/reloadable.interface';
 import { Subject, takeUntil } from 'rxjs';
 
 import { RegistrationService } from '../shared/services/registration.service';
@@ -12,7 +13,9 @@ import { RegistrationMapper } from './mappers/registration.mapper';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnDestroy {
+export class RegistrationComponent
+  implements OnDestroy, Reloadable
+{
   isNewRegister: boolean = true;
   isLoading: boolean = false;
 
@@ -20,13 +23,19 @@ export class RegistrationComponent implements OnDestroy {
 
   private destroy$ = new Subject();
 
-  constructor(private registrationService: RegistrationService, private matSnackBar: MatSnackBar) {}
+  constructor(
+    @SkipSelf()
+    private registrationService: RegistrationService,
+    @SkipSelf() private matSnackBar: MatSnackBar
+  ) {}
 
   onSubmit(formValue: RegistrationInputValues): void {
     this.isLoading = true;
 
     const request: RegistrationRequest =
-      RegistrationMapper.mapperRegistrationFormValuesToRegistrationRequest(formValue);
+      RegistrationMapper.mapperRegistrationFormValuesToRegistrationRequest(
+        formValue
+      );
 
     this.registrationService
       .registerNewAccount(request)

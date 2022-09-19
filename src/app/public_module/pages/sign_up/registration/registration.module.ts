@@ -17,7 +17,10 @@ import { RegistrationComponent } from './registration.component';
 import { RegistrationServiceImpl } from './services/registration.service';
 
 @NgModule({
-  declarations: [RegistrationComponent, RegistrationFormComponent],
+  declarations: [
+    RegistrationComponent,
+    RegistrationFormComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -32,8 +35,17 @@ import { RegistrationServiceImpl } from './services/registration.service';
     SpinnerOverlayModule,
   ],
   providers: [
-    { provide: RegistrationService, useClass: RegistrationServiceImpl },
-    { provide: TRANSLOCO_SCOPE, useValue: 'registration' },
+    {
+      provide: RegistrationService,
+      useClass: RegistrationServiceImpl,
+    },
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'public/sign_up/registration',
+        alias: 'registration',
+      },
+    },
   ],
 })
 export class RegistrationModule {}

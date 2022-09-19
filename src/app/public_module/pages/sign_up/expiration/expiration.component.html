@@ -1,3 +1,11 @@
+<app-spinner-overlay *ngIf="this.isLoading"></app-spinner-overlay>
 <section class="content-center">
-  <h1>Expiration Token</h1>
+  <div class="expiration-content content-sign-up">
+    <div *ngIf="this.isExpirationToken; else resendExpirationToken">
+      <div class="content-sign-up__title">
+        <h2>{{ 'expiration.your_token_has_expired' | transloco }}</h2>
+      </div>
+    </div>
+    <ng-template #resendExpirationToken></ng-template>
+  </div>
 </section>

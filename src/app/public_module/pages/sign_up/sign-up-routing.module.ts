@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./registration/registration.module').then((m) => m.RegistrationModule),
   },
   {
-    path: 'confirmation/:expiredDate/activatedAccount',
+    path: 'confirmation/:expiredDate/activateAccount',
     loadChildren: () => import('./confirmation/confirmation.module').then((m) => m.ConfirmationModule),
     canLoad: [TokenExpiredDateGuard],
   },

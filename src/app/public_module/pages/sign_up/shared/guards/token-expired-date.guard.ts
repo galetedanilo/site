@@ -7,10 +7,16 @@ export class TokenExpiredDateGuard implements CanLoad {
 
   canLoad(_route: Route, segments: UrlSegment[]): boolean {
     const encodedExpiredDate = segments[1];
-    const tokenExpired = this.isTokenExpired(encodedExpiredDate);
+    const tokenExpired = this.isTokenExpired(
+      encodedExpiredDate
+    );
 
     if (tokenExpired) {
-      this.router.navigate(['signUp', 'expiration', 'resendActivateToken']);
+      this.router.navigate([
+        'signUp',
+        'expiration',
+        'resendActivateToken',
+      ]);
       return false;
     }
 
@@ -26,13 +32,16 @@ export class TokenExpiredDateGuard implements CanLoad {
     const isValideDate = this.isValideDate(expiredDate);
 
     if (isValideDate) {
-      return  compareDate > expiredDate;
+      return compareDate > expiredDate;
     }
 
     return true;
   }
 
   private isValideDate(dateToValide: Date): boolean {
-    return dateToValide instanceof Date && !isNaN(dateToValide.getTime());
+    return (
+      dateToValide instanceof Date &&
+      !isNaN(dateToValide.getTime())
+    );
   }
 }

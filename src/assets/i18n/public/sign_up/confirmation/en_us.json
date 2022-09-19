@@ -1,0 +1,6 @@
+{
+  "confirmation_account": "Confirmação de cadastro",
+  "errors": {
+    "invalide_token_message": "The data present in the activation token is invalid"
+  }
+}

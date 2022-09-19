@@ -5,6 +5,41 @@
   height: 100vh;
 }
 
+.content-sign-up {
+  border: 2px solid #1ca381;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 500px;
+
+  &__title {
+    color: #253451;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  &__success__message {
+    color: #717b7b;
+    padding: 0 1.5rem 4rem;
+    text-align: center;
+  }
+
+  &__links {
+    padding: 0 1.5rem 2rem;
+    text-align: right;
+
+    a {
+      color: #253451;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
+
 ::ng-deep .error-snackbar {
   background: #ff0000;
   color: #ffffff;
