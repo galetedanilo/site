@@ -1,28 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TokenExpiredDateGuard } from './shared/guards/token-expired-date.guard';
+import { ConfirmationCanLoad } from './shared/guards/confirmation.can.load';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'registration', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'registration',
+    pathMatch: 'full',
+  },
   {
     path: 'registration',
-    loadChildren: () => import('./registration/registration.module').then((m) => m.RegistrationModule),
+    loadChildren: () =>
+      import('./registration/registration.module').then(
+        (m) => m.RegistrationModule
+      ),
   },
   {
     path: 'confirmation/:expiredDate/activateAccount',
-    loadChildren: () => import('./confirmation/confirmation.module').then((m) => m.ConfirmationModule),
-    canLoad: [TokenExpiredDateGuard],
+    loadChildren: () =>
+      import('./confirmation/confirmation.module').then(
+        (m) => m.ConfirmationModule
+      ),
+    canLoad: [ConfirmationCanLoad],
   },
   {
-    path: 'expiration/resendActivateToken',
-    loadChildren: () => import('./expiration/expiration.module').then((m) => m.ExpirationModule),
+    path: 'expiration/resendActivationToken',
+    loadChildren: () =>
+      import('./expiration/expiration.module').then(
+        (m) => m.ExpirationModule
+      ),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [TokenExpiredDateGuard],
+  providers: [ConfirmationCanLoad],
 })
 export class SignUpRoutingModule {}

@@ -1,27 +1,51 @@
-<app-spinner-overlay *ngIf="this.isLoading"></app-spinner-overlay>
+<app-spinner-overlay
+  *ngIf="this.isLoading"
+></app-spinner-overlay>
 <section class="content-center">
-  <div class="registration-content content-sign-up">
-    <div *ngIf="this.isNewRegister; else registerConfirmation">
+  <div class="content-sign-up registration-content">
+    <div
+      *ngIf="this.isNewRegister; else registerConfirmation"
+    >
       <div class="content-sign-up__title">
-        <h2>{{ 'registration.create_your_account' | transloco }}</h2>
+        <h2>
+          {{
+            'registration.create_your_account' | transloco
+          }}
+        </h2>
       </div>
       <div class="registration-content__form">
-        <app-registration-form (formSubmitEvent)="this.onSubmit($event)"></app-registration-form>
+        <app-registration-form
+          (formSubmitEvent)="this.onSubmit($event)"
+        ></app-registration-form>
       </div>
     </div>
     <ng-template #registerConfirmation>
       <div class="content-sign-up__title">
-        <h2>{{ 'registration.congratulations_you_are_subscribed' | transloco }}!</h2>
+        <h2>
+          {{
+            'registration.congratulations_you_are_subscribed'
+              | transloco
+          }}!
+        </h2>
       </div>
       <div class="content-sign-up__success__message">
-        <p>{{ 'registration.welcome' | transloco }} {{ this.userName }}</p>
-        <br>
-        <p>{{ 'registration.thanks_message' | transloco }}</p>
-        <br>
-        <p>{{ 'registration.success_message' | transloco }}</p>
+        <p>
+          {{ 'registration.welcome' | transloco }}
+          {{ this.userName }}
+        </p>
+        <br />
+        <p>
+          {{ 'registration.thanks_message' | transloco }}
+        </p>
+        <br />
+        <p>
+          {{ 'registration.success_message' | transloco }}
+        </p>
       </div>
       <div class="content-sign-up__links">
-        <a [routerLink]="['/signin']">{{ 'registration.enter_the_system' | transloco }}</a>
+        <a [routerLink]="['/signin']">{{
+          'registration.enter_the_system' | transloco
+        }}</a>
       </div>
     </ng-template>
   </div>

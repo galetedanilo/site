@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
 
 @Injectable()
-export class TokenExpiredDateGuard implements CanLoad {
+export class ConfirmationCanLoad implements CanLoad {
   constructor(private router: Router) {}
 
   canLoad(_route: Route, segments: UrlSegment[]): boolean {
@@ -15,7 +15,7 @@ export class TokenExpiredDateGuard implements CanLoad {
       this.router.navigate([
         'signUp',
         'expiration',
-        'resendActivateToken',
+        'resendActivationToken',
       ]);
       return false;
     }

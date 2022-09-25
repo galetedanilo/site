@@ -1,6 +1,9 @@
 {
-  "confirmation_account": "Confirmação de cadastro",
-  "errors": {
-    "invalide_token_message": "O dados presente no token de ativação são invalidos"
-  }
+  "account_message": "Acesse já a sua conta e tenha acesso as funcionalidades que já estão disponíveis para você.",
+  "congratulations_account_activated": "Parabéns, conta Ativada!",
+  "enter_the_system": "Entrar no sistema",
+  "invalid_activation_token": "Token de ativação invalido!",
+  "invalid_message": "Não foi possivel ativar a sua conta, os dados do seu token de ativação são invalidos ou estão incorretos, solicite outro token para ativar sua conta.",
+  "resend_activation_token": "Reenviar token de ativação",
+  "welcome_message": "Parabéns sua conta foi ativada com sucesso, bem vindo ao time {{name}}."
 }

@@ -1,2 +1,51 @@
-<app-spinner-overlay *ngIf="this.isLoading"></app-spinner-overlay>
-<h1>{{ 'confirmation.confirmation_account' | transloco }}</h1>
+<app-spinner-overlay
+  *ngIf="this.isLoading"
+></app-spinner-overlay>
+<section class="content-center">
+  <div class="content-sign-up confirmation-content">
+    <div *ngIf="this.isToken; else invalideToken">
+      <div class="content-sign-up__title">
+        <h2>
+          {{
+            'confirmation.congratulations_account_activated'
+              | transloco
+          }}
+        </h2>
+      </div>
+      <div class="content-sign-up__success__message">
+        <p>
+          {{ 'confirmation.welcome_message' | transloco }}
+        </p>
+        <br />
+        <p>
+          {{ 'confirmation.account_message' | transloco }}
+        </p>
+      </div>
+      <div class="content-sign-up__links">
+        <a [routerLink]="['/signin']">{{
+          'confirmation.enter_the_system' | transloco
+        }}</a>
+      </div>
+    </div>
+    <ng-template #invalideToken>
+      <div class="content-sign-up__title">
+        <h2>
+          {{
+            'confirmation.invalid_activation_token'
+              | transloco
+          }}
+        </h2>
+      </div>
+      <div class="content-sign-up__success__message">
+        <p>
+          {{ 'confirmation.invalid_message' | transloco }}
+        </p>
+      </div>
+      <div class="content-sign-up__links">
+        <a [routerLink]="['/signUp/expiration/resendActivationToken']">{{
+          'confirmation.resend_activation_token' | transloco
+        }}</a>
+      </div>
+    </ng-template>
+  </div>
+</section>

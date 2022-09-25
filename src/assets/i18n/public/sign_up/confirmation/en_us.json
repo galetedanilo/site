@@ -1,6 +1,9 @@
 {
-  "confirmation_account": "Confirmação de cadastro",
-  "errors": {
-    "invalide_token_message": "The data present in the activation token is invalid"
-  }
+  "account_message": "Access your account now and access the features that are already available to you.",
+  "congratulations_account_activated": "Congratulations, account activated!",
+  "enter_the_system": "Enter the system",
+  "invalid_activation_token": "Invalid activation token!",
+  "invalid_message": "Unable to activate your account, your activation token data is invalid or incorrect, request another token to activate your account.",
+  "resend_activation_token": "Resend activation token",
+  "welcome_message": "Congratulations your account has been successfully activated, welcome to the {{name}} team."
 }
