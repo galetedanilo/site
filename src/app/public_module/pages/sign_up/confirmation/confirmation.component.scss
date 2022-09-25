@@ -2,4 +2,11 @@
 
 .confirmation-content {
   width: 500px;
+
+  &__spinner {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
 }

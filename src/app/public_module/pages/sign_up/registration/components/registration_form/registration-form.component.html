@@ -1,6 +1,6 @@
 <form [formGroup]="this.registrationForm" (ngSubmit)="this.onSubmit()">
   <mat-form-field appearance="fill">
-    <mat-label>{{ "registration.name" | transloco }}</mat-label>
+    <mat-label>{{ 'registration.name' | transloco }}</mat-label>
     <input
       maxlength="45"
       matInput
@@ -21,7 +21,7 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>{{ "registration.email" | transloco }}</mat-label>
+    <mat-label>{{ 'registration.email' | transloco }}</mat-label>
     <input
       maxlength="45"
       matInput
@@ -43,7 +43,7 @@
   </mat-form-field>
   <div formGroupName="passwordMatch">
     <mat-form-field appearance="fill">
-      <mat-label>{{ "registration.password" | transloco }}</mat-label>
+      <mat-label>{{ 'registration.password' | transloco }}</mat-label>
       <input
         maxlength="20"
         matInput
@@ -60,12 +60,10 @@
         [attr.aria-pressed]="this.hidePassword"
       >
         <mat-icon>{{
-          this.hidePassword ? "visibility_off" : "visibility"
+          this.hidePassword ? 'visibility_off' : 'visibility'
         }}</mat-icon>
       </button>
-      <mat-error
-        *ngFor="let validation of this.validatorMessages.password"
-      >
+      <mat-error *ngFor="let validation of this.validatorMessages.password">
         <mat-error
           *ngIf="
             this.registrationForm
@@ -79,7 +77,7 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>{{ "registration.password" | transloco }}</mat-label>
+      <mat-label>{{ 'registration.password' | transloco }}</mat-label>
       <input
         maxlength="15"
         matInput
@@ -97,13 +95,11 @@
         [attr.aria-pressed]="this.hidePassword"
       >
         <mat-icon>{{
-          this.hideConfirmPassword ? "visibility_off" : "visibility"
+          this.hideConfirmPassword ? 'visibility_off' : 'visibility'
         }}</mat-icon>
       </button>
       <mat-error
-        *ngFor="
-          let validation of this.validatorMessages.confirm_password
-        "
+        *ngFor="let validation of this.validatorMessages.confirm_password"
       >
         <mat-error
           *ngIf="
@@ -117,7 +113,9 @@
     </mat-form-field>
   </div>
   <div class="registration-form__terms">
-    <mat-checkbox color="primary" formControlName="terms">{{ 'registration.accept_terms' | transloco }}</mat-checkbox>
+    <mat-checkbox color="primary" formControlName="terms">{{
+      'registration.accept_terms' | transloco
+    }}</mat-checkbox>
   </div>
   <div class="registration-form__actions">
     <button
@@ -126,7 +124,7 @@
       type="submit"
       [disabled]="this.registrationForm.invalid"
     >
-      {{ "registration.sign_up" | transloco }}
+      {{ 'registration.sign_up' | transloco }}
     </button>
   </div>
 </form>

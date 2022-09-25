@@ -17,10 +17,7 @@ import { RegistrationComponent } from './registration.component';
 import { RegistrationServiceImpl } from './services/registration.service';
 
 @NgModule({
-  declarations: [
-    RegistrationComponent,
-    RegistrationFormComponent,
-  ],
+  declarations: [RegistrationComponent, RegistrationFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -1,10 +1,15 @@
-import { FormControl, FormGroupDirective, NgForm } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material/core";
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 export class ErrorStateMatcherHelper implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
     const invalidCtrl = !!(control?.invalid && control?.parent?.dirty);
-    const invalidParent = !!(control?.parent?.invalid && control?.parent?.dirty);
+    const invalidParent = !!(
+      control?.parent?.invalid && control?.parent?.dirty
+    );
 
     return invalidCtrl || invalidParent;
   }

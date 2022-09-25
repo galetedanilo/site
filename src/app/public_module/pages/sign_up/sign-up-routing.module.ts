@@ -27,9 +27,7 @@ const routes: Routes = [
   {
     path: 'expiration/resendActivationToken',
     loadChildren: () =>
-      import('./expiration/expiration.module').then(
-        (m) => m.ExpirationModule
-      ),
+      import('./expiration/expiration.module').then((m) => m.ExpirationModule),
   },
 ];
 

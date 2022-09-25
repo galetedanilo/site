@@ -13,15 +13,13 @@ import { RegistrationMapper } from './mappers/registration.mapper';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent
-  implements OnDestroy, Reloadable
-{
+export class RegistrationComponent implements OnDestroy, Reloadable {
   isNewRegister: boolean = true;
   isLoading: boolean = false;
 
   userName!: string;
 
-  private destroy$ = new Subject();
+  private destroy$: Subject<boolean> = new Subject();
 
   constructor(
     @SkipSelf()

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcherHelper } from '@app/public_module/shared/helpers/error-state-match.helper';
 import { passwordMatchValidator } from '@app/public_module/shared/validators/password-match.validator';
@@ -12,7 +12,8 @@ import { RegistrationInputValues } from './interfaces/registration-input-values.
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent {
-  @Output() formSubmitEvent: EventEmitter<RegistrationInputValues> = new EventEmitter();
+  @Output() formSubmitEvent: EventEmitter<RegistrationInputValues> =
+    new EventEmitter();
 
   match = new ErrorStateMatcherHelper();
   hidePassword: boolean = true;

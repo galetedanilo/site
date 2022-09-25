@@ -1,9 +1,9 @@
-import { User } from "../../shared/interfaces/user.interface"
+import { User } from '../../shared/interfaces/user.interface';
 
 export interface RegistrationRequest extends User {
-  password: string
+  password: string;
 }
 
-export interface RegistrationResponse  extends User {
-  id: string
+export interface RegistrationResponse extends User {
+  id: string;
 }

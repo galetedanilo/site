@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { SpinnerOverlayModule } from '@app/shared/components/spinner_overlay/spinner-overlay.module';
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 import { ConfirmationService } from '../shared/services/confirmation.service';
@@ -15,8 +15,8 @@ import { ConfirmationServiceImpl } from './services/confirmation.service';
     CommonModule,
     ConfirmationRoutingModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     TranslocoModule,
-    SpinnerOverlayModule,
   ],
   providers: [
     {
@@ -25,8 +25,8 @@ import { ConfirmationServiceImpl } from './services/confirmation.service';
     },
     {
       provide: TRANSLOCO_SCOPE,
-      useValue: { scope: 'public/sign_up/confirmation', alias: 'confirmation'}
-    }
+      useValue: { scope: 'public/sign_up/confirmation', alias: 'confirmation' },
+    },
   ],
 })
 export class ConfirmationModule {}

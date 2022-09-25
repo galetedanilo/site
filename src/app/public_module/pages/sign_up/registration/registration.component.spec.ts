@@ -40,7 +40,9 @@ describe('RegistrationComponent', () => {
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
 
-    registrationServiceSpy = TestBed.inject(RegistrationService) as jest.Mocked<RegistrationService>;
+    registrationServiceSpy = TestBed.inject(
+      RegistrationService
+    ) as jest.Mocked<RegistrationService>;
     matSnackBarSpy = TestBed.inject(MatSnackBar) as jest.Mocked<MatSnackBar>;
   });
 
@@ -53,9 +55,15 @@ describe('RegistrationComponent', () => {
   });
 
   it('should call onSubmit()', fakeAsync(() => {
-    const mockResponse = { name: 'name mocked', email: 'emailmocked@mocked.com', id: 'dfa45df8d8s7f' };
-    
-    registrationServiceSpy.registerNewAccount = jest.fn().mockReturnValue(of(mockResponse));
+    const mockResponse = {
+      name: 'name mocked',
+      email: 'emailmocked@mocked.com',
+      id: 'dfa45df8d8s7f',
+    };
+
+    registrationServiceSpy.registerNewAccount = jest
+      .fn()
+      .mockReturnValue(of(mockResponse));
 
     component.onSubmit(mockFormValues);
 
@@ -75,7 +83,9 @@ describe('RegistrationComponent', () => {
       statusText: 'Not Found',
     });
 
-    registrationServiceSpy.registerNewAccount = jest.fn().mockReturnValue(of(mockHttpErroResponse));
+    registrationServiceSpy.registerNewAccount = jest
+      .fn()
+      .mockReturnValue(of(mockHttpErroResponse));
     matSnackBarSpy.open = jest.fn().mockReturnValue('test');
 
     component.onSubmit(mockFormValues);

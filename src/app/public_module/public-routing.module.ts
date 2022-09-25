@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'signUp',
-    loadChildren: () => import('./pages/sign_up/sign-up.module').then((m) => m.SignUpModule),
+    loadChildren: () =>
+      import('./pages/sign_up/sign-up.module').then((m) => m.SignUpModule),
   },
 ];
 

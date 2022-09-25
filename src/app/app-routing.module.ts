@@ -7,17 +7,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./public_module/public.module').then(
-        (m) => m.PublicModule
-      ),
+      import('./public_module/public.module').then((m) => m.PublicModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [
-    { provide: TitleStrategy, useClass: PageTitleService },
-  ],
+  providers: [{ provide: TitleStrategy, useClass: PageTitleService }],
 })
 export class AppRoutingModule {}
