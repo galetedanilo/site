@@ -1,14 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, SkipSelf } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Reloadable } from '@app/core/interfaces/reloadable.interface';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ConfirmationService } from '../shared/services/confirmation.service';
-import {
-  ConfirmationRequest,
-  ConfirmationResponse,
-} from './interfaces/confirmation.interface';
+import { ConfirmationRequest, ConfirmationResponse } from './interfaces/confirmation.interface';
 
 @Component({
   templateUrl: './confirmation.component.html',

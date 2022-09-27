@@ -7,11 +7,16 @@ import { ConfirmationRequest, ConfirmationResponse } from '../interfaces/confirm
 
 @Injectable()
 export class ConfirmationServiceImpl implements ConfirmationService {
-  private resource: string = '/confirmation-account';
+  private resource: string = '/confirmationAccount';
 
   constructor(private httpClient: PublicHttpService) {}
 
-  confirmationNewAccount(data: ConfirmationRequest): Observable<ConfirmationResponse> {
-    return this.httpClient.post<ConfirmationRequest, ConfirmationResponse>(this.resource, data);
+  confirmationNewAccount(
+    data: ConfirmationRequest
+  ): Observable<ConfirmationResponse> {
+    return this.httpClient.post<ConfirmationRequest, ConfirmationResponse>(
+      this.resource,
+      data
+    );
   }
 }

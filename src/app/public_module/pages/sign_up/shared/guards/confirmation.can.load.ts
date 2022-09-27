@@ -8,9 +8,9 @@ export class ConfirmationCanLoad implements CanLoad {
   canLoad(_route: Route, segments: UrlSegment[]): boolean {
     const encodedExpiredDate = segments[1];
     const tokenExpired = this.isTokenExpired(encodedExpiredDate);
-    
+     
     if (tokenExpired) {
-      this.router.navigate(['signUp', 'expiration', 'resendActivationToken']);
+      this.router.navigate(['sign-up', 'expiration', 'resend-activation-token']);
       return false;
     }
 

@@ -17,7 +17,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'confirmation/:expiredDate/activateAccount',
+    path: 'confirmation/:expiredDate/activate-account',
     loadChildren: () =>
       import('./confirmation/confirmation.module').then(
         (m) => m.ConfirmationModule
@@ -25,7 +25,7 @@ const routes: Routes = [
     canLoad: [ConfirmationCanLoad],
   },
   {
-    path: 'expiration/resendActivationToken',
+    path: 'expiration/resend-activation-token',
     loadChildren: () =>
       import('./expiration/expiration.module').then((m) => m.ExpirationModule),
   },

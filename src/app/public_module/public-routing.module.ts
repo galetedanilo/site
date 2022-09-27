@@ -3,9 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'signUp',
+    path: 'sign-up',
     loadChildren: () =>
       import('./pages/sign_up/sign-up.module').then((m) => m.SignUpModule),
+  },
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./pages/not_found/not-found.component').then(
+        (m) => m.NotFoundComponent
+      ),
   },
 ];
 

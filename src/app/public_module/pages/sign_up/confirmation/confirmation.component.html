@@ -12,7 +12,7 @@
         </div>
       </div>
       <ng-template #activationMessage>
-        <div *ngIf="this.isActivated">
+        <div *ngIf="this.isActivated; else expirationToken">
           <div class="content-sign-up__title">
             <h2>
               {{ 'confirmation.congratulations_account_activated' | transloco }}
@@ -33,6 +33,23 @@
             }}</a>
           </div>
         </div>
+        <ng-template #expirationToken>
+          <div class="content-sign-up__title">
+            <h2>
+              {{ 'confirmation.expiration_activation_token' | transloco }}
+            </h2>
+          </div>
+          <div class="content-sign-up__message">
+            <p>
+              {{ 'confirmation.expiration_message' | transloco }}
+            </p>
+          </div>
+          <div class="content-sign-up__links">
+            <a [routerLink]="['/sign-up/expiration/resend-activation-token']">{{
+              'confirmation.resend_activation_token' | transloco
+            }}</a>
+          </div>
+        </ng-template>
       </ng-template>
     </div>
     <ng-template #invalideToken>
@@ -47,7 +64,7 @@
         </p>
       </div>
       <div class="content-sign-up__links">
-        <a [routerLink]="['/signUp/expiration/resendActivationToken']">{{
+        <a [routerLink]="['/sign-up/expiration/resend-activation-token']">{{
           'confirmation.resend_activation_token' | transloco
         }}</a>
       </div>

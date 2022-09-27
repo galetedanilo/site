@@ -3,6 +3,8 @@
   "activating_your_account": "Activating your account...",
   "congratulations_account_activated": "Congratulations, account activated!",
   "enter_the_system": "Enter the system",
+  "expiration_activation_token": "Expiration activation token!",
+  "expiration_message": "Unable to activate your account, the token is expired, request another token to activate your account.",
   "invalid_activation_token": "Invalid activation token!",
   "invalid_message": "Unable to activate your account, your activation token data is invalid or incorrect, request another token to activate your account.",
   "resend_activation_token": "Resend activation token",

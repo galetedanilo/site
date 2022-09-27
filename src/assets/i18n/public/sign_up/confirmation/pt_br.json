@@ -3,6 +3,8 @@
   "activating_your_account": "Ativando sua conta...",
   "congratulations_account_activated": "Parabéns, conta Ativada!",
   "enter_the_system": "Entrar no sistema",
+  "expiration_activation_token": "Token de ativação expirado!",
+  "expiration_message": "Não foi possivel ativar a sua conta, o token esta expirado, solicite outro token para ativar sua conta.",
   "invalid_activation_token": "Token de ativação invalido!",
   "invalid_message": "Não foi possivel ativar a sua conta, os dados do seu token de ativação são invalidos ou estão incorretos, solicite outro token para ativar sua conta.",
   "resend_activation_token": "Reenviar token de ativação",
