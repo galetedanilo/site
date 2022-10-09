@@ -1,3 +1,11 @@
 {
-  "your_token_has_expired": "Seu token expirou" 
+  "email": "E-mail",
+  "email_cannot_be_more_than_40_characters_long" : "O e-mail não pode ter mais de 40 caracteres",
+  "email_is_required": "E-mail é obrigatório",
+  "email_must_be_at_least_5_characters_long": "O e-mail deve ter pelo menos 5 caracteres",
+  "enter_a_valid_email": "Digite um e-mail válido",
+  "enter_your_email": "Digite seu e-mail",
+  "expiration_message": "Sua conta não pôde ser ativada, seu token pode ser inválido ou conter dados incorretos. Digite seu e-mail cadastro no sistema e enviaremos um novo token para ativar sua conta.",
+  "problems_activating_your_account": "Problemas para ativar sua conta!!!",
+  "resend_token": "Reenviar Token"
 }

@@ -1,11 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, SkipSelf } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Reloadable } from '@app/core/interfaces/reloadable.interface';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ConfirmationService } from '../shared/services/confirmation.service';
-import { ConfirmationRequest, ConfirmationResponse } from './interfaces/confirmation.interface';
+import {
+  ConfirmationRequest,
+  ConfirmationResponse,
+} from './interfaces/confirmation.interface';
 
 @Component({
   templateUrl: './confirmation.component.html',
@@ -16,6 +20,10 @@ export class ConfirmationComponent implements OnInit, OnDestroy, Reloadable {
   isToken: boolean = false;
   isActivated: boolean = false;
   userName: string = '';
+
+  private activationForm = new FormGroup({
+    token: new FormControl(''),
+  });
 
   private destroy$: Subject<boolean> = new Subject();
 
@@ -33,11 +41,15 @@ export class ConfirmationComponent implements OnInit, OnDestroy, Reloadable {
   }
 
   private activateAccount(): void {
-    const token: ConfirmationRequest = this.route.snapshot.queryParams['token'];
+    const confirmationRequest: ConfirmationRequest =
+      this.route.snapshot.queryParams['token'];
+
+    this.activationForm.patchValue({ token: confirmationRequest.token });
+
     this.isLoading = true;
 
     this.confirmationService
-      .confirmationNewAccount(token)
+      .confirmationNewAccount(this.activationForm.value)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: ConfirmationResponse) => {

@@ -3,7 +3,15 @@
   <div class="expiration-content content-sign-up">
     <div *ngIf="this.isExpirationToken; else resendExpirationToken">
       <div class="content-sign-up__title">
-        <h2>{{ 'expiration.your_token_has_expired' | transloco }}</h2>
+        <h2>{{ 'expiration.problems_activating_your_account' | transloco }}</h2>
+      </div>
+      <div class="content-sign-up__message">
+        <p>
+          {{ 'expiration.expiration_message' | transloco }}
+        </p>
+      </div>
+      <div class="expiration-content__form">
+        <app-expiration-form></app-expiration-form>
       </div>
     </div>
     <ng-template #resendExpirationToken></ng-template>

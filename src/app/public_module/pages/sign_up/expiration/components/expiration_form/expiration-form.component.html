@@ -1,0 +1,33 @@
+<form [formGroup]="this.expirationForm" (ngSubmit)="this.onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'expiration.email' | transloco }}</mat-label>
+    <input
+      maxlength="45"
+      matInput
+      placeholder="{{ 'expiration.enter_your_email' | transloco }}"
+      formControlName="email"
+      required
+    />
+    <mat-icon matSuffix>alternate_email</mat-icon>
+    <mat-error *ngFor="let validation of this.validatorMessages.email">
+      <mat-error
+        *ngIf="
+          this.expirationForm.get('email')?.hasError(validation.type) &&
+          (this.expirationForm.get('email')?.dirty ||
+            this.expirationForm.get('email')?.touched)
+        "
+        >{{ validation.message | transloco }}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <div class="expiration-form__actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="this.expirationForm.invalid"
+    >
+      {{ 'expiration.resend_token' | transloco }}
+    </button>
+  </div>
+</form>

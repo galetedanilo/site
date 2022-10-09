@@ -1,3 +1,11 @@
 {
-  "your_token_has_expired": "Your token has expired" 
+  "email": "Email",
+  "email_cannot_be_more_than_40_characters_long": "Email cannot be more than 40 characters long",
+  "email_is_required": "Email is required",
+  "email_must_be_at_least_5_characters_long": "Email mustbe at least 5 characters long",
+  "enter_a_valid_email": "Enter a valid email",
+  "enter_your_email": "Enter your email",
+  "expiration_message": "Your account could not be activated, your token may be invalid or contain incorrect data. Enter your email registered in the system and we will send you a new token to activate your account.",
+  "problems_activating_your_account": "Problems activating your account!!!",
+  "resend_token": "Resend Token"
 }
