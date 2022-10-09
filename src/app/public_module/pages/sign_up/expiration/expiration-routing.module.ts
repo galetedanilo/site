@@ -9,4 +9,4 @@ const routes: Routes = [{ path: '', title: 'Expiration Token', component: Expira
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ExpirationRouterModule {}
+export class ExpirationRoutingModule {}

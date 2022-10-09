@@ -8,7 +8,7 @@ import { SpinnerOverlayModule } from '@app/shared/components/spinner_overlay/spi
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { ExpirationFormComponent } from './components/expiration_form/expiration-form.component';
-import { ExpirationRouterModule } from './expiration-routin.module';
+import { ExpirationRoutingModule } from './expiration-routing.module';
 import { ExpirationComponent } from './expiration.component';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ExpirationComponent } from './expiration.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    ExpirationRouterModule,
+    ExpirationRoutingModule,
     TranslocoModule,
     SpinnerOverlayModule,
   ],
