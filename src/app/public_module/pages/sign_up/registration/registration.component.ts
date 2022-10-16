@@ -8,6 +8,7 @@ import { RegistrationService } from '../shared/services/registration.service';
 import { RegistrationInputValues } from './components/registration_form/interfaces/registration-input-values.interface';
 import { RegistrationRequest, RegistrationResponse } from './interfaces/registration.interface';
 import { RegistrationMapper } from './mappers/registration.mapper';
+import { RegistrationError } from './enums/registration-error.enum';
 
 @Component({
   templateUrl: './registration.component.html',
@@ -44,13 +45,20 @@ export class RegistrationComponent implements OnDestroy, Reloadable {
           this.isNewRegister = false;
           this.isLoading = false;
         },
-        error: (error: HttpErrorResponse) => {
+        error: (httpErrorResponse: HttpErrorResponse) => {
           this.isLoading = false;
-          this.matSnackBar.open(error.message, 'Close', {
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            duration: 2500,
-          });
+
+          const errorCode = httpErrorResponse.error.code;
+          
+          switch (errorCode) {
+            case RegistrationError.EMAIL_ALREADY_EXISTS:
+              this.matSnackBar.open(httpErrorResponse.error.messages, 'Close', {
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                duration: 2500,
+              });
+              break;
+          }
         },
       });
   }

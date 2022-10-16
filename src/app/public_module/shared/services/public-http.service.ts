@@ -8,18 +8,19 @@ import { Observable } from 'rxjs';
 export class PublicHttpServiceImpl implements PublicHttpService {
   private apiUrl: string = environment.apiUrl;
   private apiVersion: string = environment.apiVersion;
+  private apiModule: string = '/public'
 
   constructor(@SkipSelf() private httpClient: HttpClient) {}
 
   get<T>(resource: string): Observable<T> {
     return this.httpClient.get<T>(
-      this.apiUrl.concat(this.apiVersion, resource)
+      this.apiUrl.concat(this.apiVersion, this.apiModule, resource)
     );
   }
 
   post<T, R>(resource: string, body: T): Observable<R> {
     return this.httpClient.post<R>(
-      this.apiUrl.concat(this.apiVersion, resource),
+      this.apiUrl.concat(this.apiVersion, this.apiModule, resource),
       body
     );
   }
